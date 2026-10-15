@@ -3,6 +3,6 @@
 cd "${CLAUDE_PROJECT_DIR:-$(dirname "$0")/..}" || exit 0
 git add -A
 # 바뀐 게 없으면 커밋하지 않음
-git diff --cached --quiet && exit 0
+git diff --cached --quiet >/dev/null 2>&1 && exit 0
 git commit -q -m "Auto commit: $(date '+%Y-%m-%d %H:%M:%S')"
 git push -q origin main
