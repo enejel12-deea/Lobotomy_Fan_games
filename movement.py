@@ -180,7 +180,22 @@ maps = {
             pygame.Rect(0, 541, 750, 209),    # 아래쪽 벽
         ],
         "doors": [
-            (pygame.Rect(328, 250, 91, 30), "safety2", (1099, 247)),  # 위 문 (Team-2로 돌아가기)
+            (pygame.Rect(328, 250, 91, 30), "safety12", (110, 296)),  # 위 문 (Team-12로 돌아가기)
+        ],
+    },
+    "safety12": {
+        # 원본 1775x724 이미지의 왼쪽은 검은 빈 공간이라 복도 부분(x 700부터)만 잘라서 사용
+        "background": pygame.image.load(
+            "D:/hjh/VScode/Movement test/Lobotomy Safety Team-12.png").subsurface((700, 0, 1075, 724)),
+        "size": (1075, 724),
+        "walls": [
+            pygame.Rect(0, 0, 1075, 330),     # 위쪽 벽 (가로 복도 위쪽 화분 줄까지)
+            pygame.Rect(0, 428, 1075, 296),   # 아래쪽 벽 (가로 복도 아래쪽 화분 줄부터)
+            pygame.Rect(0, 0, 60, 724),       # 왼쪽 벽 (문 앞까지)
+        ],
+        "doors": [
+            (pygame.Rect(60, 330, 30, 98), "restroom1", (346, 227)),  # 왼쪽 문 (화장실)
+            (pygame.Rect(1045, 330, 30, 98), "safety2", (50, 287)),  # 오른쪽 복도 끝
         ],
     },
     "safety3": {
