@@ -238,6 +238,21 @@ maps = {
         "doors": [
             (pygame.Rect(224, 0, 84, 80), "safety2", (694, 600)),  # 위 복도 끝 (발 판정이 아래쪽이라 넉넉히)
             (pygame.Rect(942, 332, 30, 68), "safety11", (50, 413)),  # 오른쪽 복도 끝
+            (pygame.Rect(224, 720, 84, 30), "safety8", (266, 40)),  # 아래 복도 끝
+        ],
+    },
+    "safety8": {
+        # 원본 1216x884 이미지를 1032x750으로 줄여서 사용
+        "background": pygame.transform.smoothscale(
+            pygame.image.load("D:/hjh/VScode/Movement test/Lobotomy Safety Team-8.png"), (1032, 750)),
+        "size": (1032, 750),
+        "walls": [
+            pygame.Rect(0, 0, 251, 750),      # 왼쪽 벽 (세로 복도 왼쪽 화분 줄까지)
+            pygame.Rect(338, 0, 694, 611),    # 오른쪽 위 빈 공간 (ㄴ자 복도 안쪽)
+            pygame.Rect(0, 672, 1032, 78),    # 아래쪽 벽 (가로 복도 아래쪽 화분 줄부터)
+        ],
+        "doors": [
+            (pygame.Rect(251, 0, 87, 80), "safety7", (238, 600)),  # 위 복도 끝 (발 판정이 아래쪽이라 넉넉히)
         ],
     },
     "safety11": {
