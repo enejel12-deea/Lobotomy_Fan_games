@@ -167,20 +167,23 @@ maps = {
         ],
     },
     "restroom1": {
-        # 원본 1254x1254 이미지를 750x750으로 줄여서 사용
+        # 원본 1254x1254 이미지에서 검은 여백을 잘라낸 895x605 부분을 1110x750으로 키워서 사용
         "background": pygame.transform.smoothscale(
-            pygame.image.load("D:/hjh/VScode/Movement test/Lobotomy restroom-1.png"), (750, 750)),
-        "size": (750, 750),
+            pygame.image.load("D:/hjh/VScode/Movement test/Lobotomy restroom-1.png").subsurface((180, 355, 895, 605)),
+            (1110, 750)),
+        "size": (1110, 750),
+        # 캐릭터 몸 전체가 바닥 밖으로 나가지 않게 벽을 잡음
+        # (발 판정 기준이라 위쪽 벽은 머리 높이만큼, 양옆 벽은 몸 폭만큼 더 안쪽으로)
         "walls": [
-            pygame.Rect(0, 0, 750, 250),      # 위쪽 벽 (위 문 앞까지)
-            pygame.Rect(0, 0, 328, 449),      # 세로 복도 왼쪽
-            pygame.Rect(419, 0, 331, 449),    # 세로 복도 오른쪽
-            pygame.Rect(0, 0, 179, 750),      # 왼쪽 벽 (왼쪽 문까지)
-            pygame.Rect(595, 0, 155, 750),    # 오른쪽 벽 (오른쪽 문 안쪽까지)
-            pygame.Rect(0, 541, 750, 209),    # 아래쪽 벽
+            pygame.Rect(0, 0, 1110, 134),     # 위쪽 벽 (세로 복도 위 끝)
+            pygame.Rect(0, 0, 473, 565),      # 세로 복도 왼쪽
+            pygame.Rect(633, 0, 477, 565),    # 세로 복도 오른쪽
+            pygame.Rect(0, 0, 163, 750),      # 왼쪽 벽 (왼쪽 문 앞까지)
+            pygame.Rect(947, 0, 163, 750),    # 오른쪽 벽 (오른쪽 문 앞까지)
+            pygame.Rect(0, 686, 1110, 64),    # 아래쪽 벽
         ],
         "doors": [
-            (pygame.Rect(565, 449, 30, 92), "safety12", (110, 296)),  # 오른쪽 문 (Team-12로 돌아가기)
+            (pygame.Rect(927, 565, 20, 121), "safety12", (110, 296)),  # 오른쪽 문 (Team-12로 돌아가기)
         ],
     },
     "safety12": {
