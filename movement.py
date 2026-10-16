@@ -168,6 +168,23 @@ maps = {
             (pygame.Rect(660, 720, 125, 30), "safety7", (238, 40)),  # 아래 복도 끝
         ],
     },
+    "restroom1": {
+        # 원본 1254x1254 이미지를 750x750으로 줄여서 사용
+        "background": pygame.transform.smoothscale(
+            pygame.image.load("D:/hjh/VScode/Movement test/Lobotomy restroom-1.png"), (750, 750)),
+        "size": (750, 750),
+        "walls": [
+            pygame.Rect(0, 0, 750, 250),      # 위쪽 벽 (위 문 앞까지)
+            pygame.Rect(0, 0, 328, 449),      # 세로 복도 왼쪽
+            pygame.Rect(419, 0, 331, 449),    # 세로 복도 오른쪽
+            pygame.Rect(0, 0, 179, 750),      # 왼쪽 벽 (왼쪽 문까지)
+            pygame.Rect(565, 0, 185, 750),    # 오른쪽 벽 (오른쪽 문까지)
+            pygame.Rect(0, 541, 750, 209),    # 아래쪽 벽
+        ],
+        "doors": [
+            (pygame.Rect(328, 250, 91, 30), "safety2", (1099, 247)),  # 위 문 (Team-2로 돌아가기)
+        ],
+    },
     "safety3": {
         # 원본 1489x1024 이미지를 1091x750으로 줄여서 사용
         "background": pygame.transform.smoothscale(
