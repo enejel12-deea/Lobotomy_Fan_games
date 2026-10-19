@@ -184,36 +184,36 @@ maps = {
         ],
         "doors": [
             (pygame.Rect(927, 565, 20, 121), "safety12", (110, 296)),  # 오른쪽 문 (Team-12로 돌아가기)
-            (pygame.Rect(473, 114, 160, 30), "restroom2", (817, 599)),  # 위쪽 문 (휴게실 아래 문으로)
+            (pygame.Rect(473, 114, 160, 30), "restroom2", (560, 382)),  # 위쪽 문 (휴게실 아래 문으로)
         ],
     },
     "restroom2": {
-        # 원본 1536x1024 이미지에서 검은 여백을 잘라낸 1320x870 부분을 1138x750으로 줄여서 사용
+        # 원본 1536x1024 이미지에서 검은 여백을 잘라낸 1320x870 부분을 플레이어 크기에 맞게 792x522로 줄여서 사용
         "background": pygame.transform.smoothscale(
             pygame.image.load("D:/hjh/VScode/Movement test/Lobotomy restroom-2.png").subsurface((110, 60, 1320, 870)),
-            (1138, 750)),
-        "size": (1138, 750),
+            (792, 522)),
+        "size": (792, 522),
         "walls": [
-            pygame.Rect(0, 0, 1138, 207),     # 위쪽 벽 (자판기와 주방 조리대까지)
-            pygame.Rect(0, 0, 82, 750),       # 왼쪽 벽
-            pygame.Rect(1060, 0, 78, 750),    # 오른쪽 벽
-            pygame.Rect(0, 629, 793, 121),    # 아래쪽 벽 (문 왼쪽)
-            pygame.Rect(897, 629, 241, 121),  # 아래쪽 벽 (문 오른쪽)
-            pygame.Rect(0, 746, 1138, 4),     # 문 복도 끝
-            pygame.Rect(73, 233, 207, 95),    # 소파 (ㄱ자라 사각형 2개)
-            pygame.Rect(73, 233, 95, 250),
-            pygame.Rect(198, 366, 92, 108),   # 소파 앞 탁자
-            pygame.Rect(289, 435, 108, 125),  # 1인용 소파
-            pygame.Rect(522, 246, 220, 155),  # 위쪽 식탁과 의자
-            pygame.Rect(522, 431, 220, 159),  # 아래쪽 식탁과 의자
-            pygame.Rect(996, 198, 69, 69),    # 쓰레기통
-            pygame.Rect(974, 272, 91, 203),   # TV 받침대
-            pygame.Rect(987, 483, 78, 86),    # 책장
-            pygame.Rect(60, 543, 73, 86),     # 왼쪽 아래 화분
-            pygame.Rect(996, 552, 69, 78),    # 오른쪽 아래 화분
+            pygame.Rect(0, 0, 792, 144),      # 위쪽 벽 (자판기와 주방 조리대까지)
+            pygame.Rect(0, 0, 57, 522),       # 왼쪽 벽
+            pygame.Rect(738, 0, 54, 522),     # 오른쪽 벽
+            pygame.Rect(0, 438, 552, 84),     # 아래쪽 벽 (문 왼쪽)
+            pygame.Rect(624, 438, 168, 84),   # 아래쪽 벽 (문 오른쪽)
+            pygame.Rect(0, 519, 792, 3),      # 문 복도 끝
+            pygame.Rect(51, 162, 144, 66),    # 소파 (ㄱ자라 사각형 2개)
+            pygame.Rect(51, 162, 66, 174),
+            pygame.Rect(138, 255, 64, 75),    # 소파 앞 탁자
+            pygame.Rect(201, 303, 75, 87),    # 1인용 소파
+            pygame.Rect(363, 171, 153, 108),  # 위쪽 식탁과 의자
+            pygame.Rect(363, 300, 153, 111),  # 아래쪽 식탁과 의자
+            pygame.Rect(693, 138, 48, 48),    # 쓰레기통
+            pygame.Rect(678, 189, 63, 141),   # TV 받침대
+            pygame.Rect(687, 336, 54, 60),    # 책장
+            pygame.Rect(42, 378, 51, 60),     # 왼쪽 아래 화분
+            pygame.Rect(693, 384, 48, 54),    # 오른쪽 아래 화분
         ],
         "doors": [
-            (pygame.Rect(793, 720, 104, 26), "restroom1", (525, 90)),  # 아래 문 (화장실 위쪽 문으로)
+            (pygame.Rect(552, 492, 72, 27), "restroom1", (525, 90)),  # 아래 문 (화장실 위쪽 문으로)
         ],
     },
     "safety12": {
