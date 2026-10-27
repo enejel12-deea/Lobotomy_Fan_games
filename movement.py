@@ -546,9 +546,10 @@ def hits_wall(x, y):
     rect = feet_rect(x, y)
     return any(rect.colliderect(wall) for wall in walls)
 
-# NPC: Safety Team-1 ~ 11 맵을 돌아다니고, 문을 지나 다른 Safety Team 맵으로도 이동함
+# NPC: Lobotomy Corporation-1(lobby2)과 Safety Team-1 ~ 11 맵을 돌아다니고, 문을 지나 서로 오감
+# (엘리베이터가 있는 lobby에는 가지 않음)
 # 지금 보고 있지 않은 맵의 NPC도 계속 움직이고, 화면에는 현재 맵에 있는 NPC만 그림
-npc_maps = ["safety"] + ["safety%d" % number for number in range(2, 12)]
+npc_maps = ["lobby2", "safety"] + ["safety%d" % number for number in range(2, 12)]
 grid = 10       # NPC 길찾기 칸 크기 (픽셀)
 npc_door_chance = 0.3  # 한 곳에 도착한 뒤 다른 맵으로 떠날 확률
 npc_wall_cost = 4      # 벽 가까운 칸을 지날 때 드는 추가 비용 (클수록 복도 가운데로 걸음)
@@ -601,7 +602,7 @@ def make_spots(name):
 npc_spots = {name: make_spots(name) for name in npc_maps}
 
 def make_npc_doors(name):
-    # NPC가 쓸 수 있는 문 (다른 Safety Team 맵으로 가는 문만): (도착할 맵, 도착 위치, 문 가운데 칸)
+    # NPC가 쓸 수 있는 문 (npc_maps에 있는 맵으로 가는 문만): (도착할 맵, 도착 위치, 문 가운데 칸)
     doors = []
     for door, next_map, position in maps[name]["doors"]:
         if next_map not in npc_maps:
@@ -701,8 +702,8 @@ def nearest_cell(name, x, y):
 
 def make_npc(index, name, taken):
     # 같은 맵에서 시작하는 NPC끼리 겹쳐 서 있지 않게 아직 아무도 없는 목적지에서 시작함
-    cell = random.choice([spot for spot in npc_spots[name] if spot not in taken] or npc_spots[name])
-    taken.append(cell)
+    cell = random.choice([spot for spot in npc_spots[name] if (name, spot) not in taken] or npc_spots[name])
+    taken.append((name, cell))
     return {"sprites": npc_sprites[index % len(npc_sprites)], "map": name, "came_from": None,
             "x": float(cell[0] * grid), "y": float(cell[1] * grid),
             "speed": random.uniform(2.4, 3.2),  # NPC마다 걷는 속도가 조금씩 다름 (플레이어는 5)
